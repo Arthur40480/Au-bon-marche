@@ -5,7 +5,8 @@ public class Menu {
 	public static int mainMenu(Scanner scanner) {
 		String[] mainMenu = {
 				"1 - Traiter l'arrivée d'un nouveau client",
-				"2 - Editer le bilan de la journée"
+				"2 - Editer le bilan de la journée",
+				"3 - Quitter l'application"
 		};
 		System.out.println("************ Menu Principale ************");
 		System.out.println();

@@ -32,7 +32,20 @@ public class Marche {
 			merchandiseList.add(merchandise);
 		}
 		
-		Menu.mainMenu(scanner);
+		int userChoice = Menu.mainMenu(scanner);
+		// Suivant le choix utilisateur, on éxecute :
+		switch(userChoice) {
+			case 1:
+				System.out.println("Première option !");
+				break;
+			case 2:
+				System.out.println("Deuxième option !");
+				break;
+			case 3:
+				System.out.println("A bientôt !");
+				System.exit(0);
+		}
+		
 		scanner.close();
 
 	}
