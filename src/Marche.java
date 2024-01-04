@@ -32,7 +32,7 @@ public class Marche {
 			merchandiseList.add(merchandise);
 		}
 		
-		int userChoice = Menu.mainMenu(scanner);
+		int userChoice = Display.mainMenu(scanner);
 		// Suivant le choix utilisateur, on éxecute :
 		switch(userChoice) {
 			case 1:

@@ -13,11 +13,24 @@ public class Customer {
 		String lastName = scanner.next();
 		System.out.print("Veuillez remplir votre prénom : ");
 		String name = scanner.next();
+		System.out.println();
 		
 		// On assigne les informations du client à notre HashMap :
 		customerInfos.put("LastName", lastName);
 		customerInfos.put("Name", name);
 		
-		System.out.println(customerInfos);
+		int userChoice = Display.customerMenu(scanner);
+		// Suivant le choix utilisateur, on éxecute :
+		switch(userChoice) {
+		case 1:
+			System.out.println("Première option !");
+			break;
+		case 2:
+			System.out.println("Deuxième option !");
+			break;
+		case 3:
+			System.out.println("Troisième option !");
+			break;
+		}
 	}
 }
