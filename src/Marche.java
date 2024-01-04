@@ -36,18 +36,18 @@ public class Marche {
 		// Suivant le choix utilisateur, on éxecute :
 		switch(userChoice) {
 			case 1:
-				System.out.println("Première option !");
+				Customer.newCustomer(scanner);;
 				break;
 			case 2:
 				System.out.println("Deuxième option !");
 				break;
 			case 3:
-				System.out.println("A bientôt !");
+				System.out.println();
+				System.out.println("*************** A bientôt ***************");
 				System.exit(0);
 		}
 		
 		scanner.close();
-
 	}
 
 }
