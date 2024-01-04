@@ -32,7 +32,7 @@ public class Marche {
 			merchandiseList.add(merchandise);
 		}
 		
-		System.out.println(merchandiseList);
+		Menu.mainMenu(scanner);
 		scanner.close();
 
 	}
