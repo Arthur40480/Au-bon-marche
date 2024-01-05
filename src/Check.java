@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Check {
@@ -9,7 +11,7 @@ public class Check {
 			// Si c'est un nombre entier alors :
 			if(scanner.hasNextInt()) {
 				userChoice = scanner.nextInt();
-				// Si la saisie de l'utilisateur est supérieur à 1 et inférieur à la longueur du menu :
+				// Si la saisie de l'utilisateur est inferieur à 1 et superieur à la longueur du menu :
 				if(userChoice < 1 || userChoice > optionMenu.length) {
 					System.out.print("Veuillez saisir un choix correct (1 - " + optionMenu.length + ") : ");
 				// Sinon :
@@ -24,4 +26,28 @@ public class Check {
 		}
 		return userChoice;
 	}
+	
+	public static int checkMerchandiseId(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList) {
+		int userChoice;
+		
+		while(true) {
+			// Si c'est un nombre entier alors :
+			if(scanner.hasNextInt()) {
+				userChoice = scanner.nextInt();
+				// Si la saisie de l'utilisateur est inferieur à 1 et superieur à la longueur de la liste :
+				if(userChoice < 1 || userChoice > merchandiseList.size()) {
+					System.out.print("Veuillez saisir un choix correct (1 - " + merchandiseList.size() + ") : ");
+				// Sinon :
+				} else {
+					break; // On sort de la boucle
+				}
+			// Sinon :
+			} else {
+				System.out.print("Veuillez saisir un choix correct (1 - " + merchandiseList.size() + ") : ");
+				scanner.next();
+			}
+		}
+		return userChoice;
+	}
 }
+
