@@ -22,11 +22,12 @@ public class Update {
 	public static HashMap<String, Object> updateCart(ArrayList<HashMap<String, Object>> merchandiseList, HashMap<String, Object> customerInfos, int merchandiseId, double merchandiseQuantity) {
 		// On viens récupérer la HashMap de la marchandise à ajouter dans le panier :
 		HashMap<String, Object> merchandiseToAdd = merchandiseList.get(merchandiseId - 1);
-		// On viens récupérer la HashMap qui fait office de panier :
+		// On viens récupérer la liste qui fait office de panier :
 		Object cartObject = customerInfos.get("Cart");
 		@SuppressWarnings("unchecked")
-		HashMap<String, Object> cart = (HashMap<String, Object>) cartObject;
-		
+		ArrayList<Object> cart = (ArrayList<Object>) cartObject;
+		// On viens créer une Hashmap pour chaques item que l'on assignera à la HashMap cart :
+		HashMap<String, Object> item = new HashMap<>();
 		
 		// Opération de casting explicite pour convertir notre valeur string encapsuler dans l'objet :
 		Object nameMerchandiseToAddObject = merchandiseToAdd.get("Nom");
@@ -52,10 +53,13 @@ public class Update {
 		// Le prix total :
 		customerInfos.put("TotalPrice", totalPriceCartUpdated);
 		// Le panier :
-		cart.put("NameItem", nameMerchandiseToAddString);
-		cart.put("QuantityItem", merchandiseQuantity);
-		cart.put("PricePerKg", pricePerKgBool);
+		item.put("NameItem", nameMerchandiseToAddString);
+		item.put("QuantityItem", merchandiseQuantity);
+		item.put("QuantityPrice", quantityPriceToAdd);
+		item.put("PricePerKg", pricePerKgBool);
+		cart.add(item);
 		customerInfos.put("Cart", cart);
+		System.out.println(cart);
 		
 		return customerInfos;
 	}
