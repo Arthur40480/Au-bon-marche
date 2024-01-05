@@ -26,7 +26,7 @@ public class Check {
 		}
 		return userChoice;
 	}
-	
+	// Méthode qui viens vérifier la saisie utilisateur suivant l'id du produit sélectionner :
 	public static int checkMerchandiseId(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList) {
 		int userChoice;
 		
@@ -39,7 +39,19 @@ public class Check {
 					System.out.print("Veuillez saisir un choix correct (1 - " + merchandiseList.size() + ") : ");
 				// Sinon :
 				} else {
-					break; // On sort de la boucle
+					// On viens récupérer la HashMap de la marchandise sélectionner :
+					HashMap<String, Object> merchandiseToCheck = merchandiseList.get(userChoice - 1);
+					// Opération de casting explicite pour convertir notre valeur numérique encapsuler dans l'objet :
+					Object stockToCheckObject = merchandiseToCheck.get("Stock");
+					double stockToCheckDouble = ((Number) stockToCheckObject).doubleValue();
+					// Si le stock égale à 0 alors :
+					if( stockToCheckDouble == 0) {
+						System.out.println("Ce produit est momentanément indisponible, veuillez nous excuser.");
+						System.out.println("Veuillez saisir un autre choix (1 - " + merchandiseList.size() + ") : ");
+					// Sinon :
+					} else {
+						break; // On sort de la boucle
+					}
 				}
 			// Sinon :
 			} else {
