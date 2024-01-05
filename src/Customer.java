@@ -17,7 +17,6 @@ public class Customer {
 		String lastName = scanner.next();
 		System.out.print("Veuillez remplir votre prénom : ");
 		String name = scanner.next();
-		System.out.println();
 		
 		// On assigne les informations du client à notre HashMap :
 		customerInfos.put("LastName", lastName);
@@ -25,18 +24,6 @@ public class Customer {
 		customerInfos.put("TotalPrice", 0);
 		customerInfos.put("Cart", cart);
 		
-		int userChoice = Display.customerMenu(scanner);
-		// Suivant le choix utilisateur, on éxecute :
-		switch(userChoice) {
-		case 1:
-			Purchase.purchaseMerchandise(scanner, merchandiseList, customerInfos);
-			break;
-		case 2:
-			System.out.println("Deuxième option !");
-			break;
-		case 3:
-			System.out.println("Troisième option !");
-			break;
-		}
+		Purchase.purchaseMerchandise(scanner, merchandiseList, customerInfos);
 	}
 }

@@ -23,27 +23,6 @@ public class Display {
 		int userChoice = Check.checkMenu(scanner, mainMenu); // On apelle la méthode checkMenu pour vérifier la saisie utilisateur 
 		return userChoice;
 	}
-	
-	// Méthode affichant le menu client et retourne la saisie de l'utilisateur :
-	public static int customerMenu(Scanner scanner) {
-		// On déclare un tableau de String qui contiendra chaque option :
-		String[] customerMenu = {
-				"1 - Remplir votre panier",
-				"2 - Voir votre Panier",
-				"3 - Finaliser vos achats"
-		};
-		System.out.println("************ Menu Client ************");
-		System.out.println();
-		for(int i = 0; i < customerMenu.length; i++) {
-			System.out.println(customerMenu[i]);
-		}
-		System.out.println();
-		System.out.println("*****************************************");
-		System.out.print("Veuillez saisir votre choix (1 - " + customerMenu.length + ") : ");
-		int userChoice = Check.checkMenu(scanner, customerMenu); // On apelle la méthode checkMenu pour vérifier la saisie utilisateur 
-		return userChoice;
-	}
-	
 	// Méthode affichant la liste de produit restant :
 	public static void displayMerchandiseList(ArrayList<HashMap<String, Object>> merchandiseList) {
 		System.out.println();
@@ -92,6 +71,6 @@ public class Display {
 		System.out.println();
 		System.out.println("Prix total : " + customerInfos.get("TotalPrice") + "€");
 		System.out.println();
-		System.out.println("******************************************************");
+		Display.mainMenu(scanner);
 	}
 }
