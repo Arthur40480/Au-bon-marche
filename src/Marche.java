@@ -11,6 +11,9 @@ public class Marche {
 		// Déclaration d'une liste, une qui contiendra les fruits et légumes :
 		ArrayList<HashMap<String, Object>> merchandiseList = new ArrayList<>();
 		
+		// Déclaration d'une liste, une qui contiendra les clients et leurs informations :
+		ArrayList<HashMap<String, Object>> customerList = new ArrayList<>();
+		
 		// Déclaration de tableau d'objet à multiple dimension contenant toute les informations des fruits et légumes à vendre :
 		Object[][] informationBoard = {
 				{"Clémentine", "Datte", "Grenade", "Kaki", "Kiwi", "Mandarine", "Orange", "Pamplemousse", "Poire","Pomme", 		//  <- Noms
@@ -34,7 +37,7 @@ public class Marche {
 			merchandiseList.add(merchandise);
 		}
 		
-		Display.mainMenu(scanner, merchandiseList);
+		Display.mainMenu(scanner, merchandiseList, customerList);
 		scanner.close();
 	}
 

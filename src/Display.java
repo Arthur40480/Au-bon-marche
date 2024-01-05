@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Display {
 	
 	// Méthode affichant le menu principale et retourne la saisie de l'utilisateur :
-	public static void mainMenu(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList) {
+	public static void mainMenu(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList, ArrayList<HashMap<String, Object>> customerList) {
 		// On déclare un tableau de String qui contiendra chaque option :
 		String[] mainMenu = {
 				"1 - Traiter l'arrivée d'un nouveau client",
@@ -25,10 +25,10 @@ public class Display {
 		// Suivant le choix utilisateur, on éxecute :
 		switch(userChoice) {
 			case 1:
-				Customer.newCustomer(scanner, merchandiseList);
+				Customer.newCustomer(scanner, merchandiseList, customerList);
 				break;
 			case 2:
-				displayMerchandiseList(merchandiseList);
+				displayReviewOfTheDay(scanner, customerList, merchandiseList);
 				break;
 			case 3:
 				System.out.println();
@@ -62,9 +62,10 @@ public class Display {
 			System.out.print(" - PRIX: " + merchandise.get("Prix"));
 			System.out.println(kgPriceBool ? "€/Kg" : "€/U");
 		}
+		System.out.println();
 	}
 	// Méthode qui permet d'afficher le ticket de caisse du client :
-	public static void displayReceipt(Scanner scanner, HashMap<String, Object> customerInfos, ArrayList<HashMap<String, Object>> merchandiseList) {	
+	public static void displayReceipt(Scanner scanner, HashMap<String, Object> customerInfos, ArrayList<HashMap<String, Object>> merchandiseList, ArrayList<HashMap<String, Object>> customerList) {	
 		// On viens récupérer la liste qui fait office de panier :
 		Object cartObject = customerInfos.get("Cart");
 		@SuppressWarnings("unchecked")
@@ -84,6 +85,27 @@ public class Display {
 		System.out.println();
 		System.out.println("Prix total : " + customerInfos.get("TotalPrice") + "€");
 		System.out.println();
-		Display.mainMenu(scanner, merchandiseList);
+		Display.mainMenu(scanner, merchandiseList, customerList);
+	}
+	// Méthode permettant d'afficher le bilan de la journée, ainsi que le stock actuel :
+	public static void displayReviewOfTheDay(Scanner scanner, ArrayList<HashMap<String, Object>> customerList, ArrayList<HashMap<String, Object>> merchandiseList) {
+		int customerNumber = 1;
+		double total = 0;
+		System.out.println();
+		System.out.println("***************** BILAN DE LA JOURNEE *****************");
+		System.out.println();
+		System.out.println("Nombre de client : " + customerList.size() );
+		System.out.println();
+		for(HashMap<String, Object> customer : customerList) {
+			Object totalPricePerCustomerObject = customer.get("TotalPrice");
+			double totalPricePerCustomerDouble = ((Number) totalPricePerCustomerObject).doubleValue();
+			System.out.println("Client numéro " + customerNumber +": " + customer.get("LastName") + " " + customer.get("Name") + " - Total : " + customer.get("TotalPrice") + "€");
+			customerNumber++;
+			total = total + totalPricePerCustomerDouble;
+		}
+		System.out.println();
+		System.out.println("Total : " + total + "€");
+		displayMerchandiseList(merchandiseList);
+		mainMenu(scanner, merchandiseList, customerList);
 	}
 }

@@ -6,7 +6,7 @@ public class Purchase {
 	// Méthode qui permet au client d'ajouter une quantité de produit à sont panier :
 	// Elle met à jour la liste des produits et du panier :
 	// Et boucle si jamais le client n'à pas finis ces achats :
-	public static void purchaseMerchandise(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList, HashMap<String, Object> customerInfos) {
+	public static void purchaseMerchandise(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList, HashMap<String, Object> customerInfos, ArrayList<HashMap<String, Object>> customerList) {
 		while(true) {
 			// On affiche la liste des produits au client :
 			Display.displayMerchandiseList(merchandiseList);
@@ -31,7 +31,8 @@ public class Purchase {
 			System.out.print("Avez-vous terminé vos achats ? (Oui/Non) : ");
 			String userChoice = scanner.next();
 			if(userChoice.toLowerCase().equals("oui")) {
-				Display.displayReceipt(scanner, customerInfos, merchandiseList);
+				customerList.add(customerInfos);
+				Display.displayReceipt(scanner, customerInfos, merchandiseList, customerList);
 				break;
 			}
 		}
