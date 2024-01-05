@@ -8,7 +8,7 @@ public class Customer {
 		// Déclaration d'une HashMap qui contiendras les informations du client, ainsi que sont panier :
 		HashMap<String, Object> customerInfos = new HashMap<>();
 		// Déclaration d'une HashMap qui sera le panier du client :
-		ArrayList<Object> cart = new ArrayList<>();
+		ArrayList<HashMap<String, Object>> cart = new ArrayList<>();
 		
 		System.out.println();
 		System.out.println("*************** Bienvenue ***************");

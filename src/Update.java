@@ -25,7 +25,7 @@ public class Update {
 		// On viens récupérer la liste qui fait office de panier :
 		Object cartObject = customerInfos.get("Cart");
 		@SuppressWarnings("unchecked")
-		ArrayList<Object> cart = (ArrayList<Object>) cartObject;
+		ArrayList<HashMap<String, Object>> cart = (ArrayList<HashMap<String, Object>>) cartObject;
 		// On viens créer une Hashmap pour chaques item que l'on assignera à la HashMap cart :
 		HashMap<String, Object> item = new HashMap<>();
 		
@@ -40,7 +40,7 @@ public class Update {
 		// Opération de casting explicite pour convertir notre valeur numérique encapsuler dans l'objet :
 		Object priceMerchandiseToAddObject = merchandiseToAdd.get("Prix");
 		double priceMerchandiseToAddDouble = ((Number) priceMerchandiseToAddObject).doubleValue();
-		
+
 		// On calcule le prix de la marchandise sélectionner x sa quantité :
 		double quantityPriceToAdd = priceMerchandiseToAddDouble * merchandiseQuantity;
 		
@@ -59,7 +59,6 @@ public class Update {
 		item.put("PricePerKg", pricePerKgBool);
 		cart.add(item);
 		customerInfos.put("Cart", cart);
-		System.out.println(cart);
 		
 		return customerInfos;
 	}

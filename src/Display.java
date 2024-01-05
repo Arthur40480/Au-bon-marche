@@ -71,4 +71,27 @@ public class Display {
 			System.out.println(kgPriceBool ? "€/Kg" : "€/U");
 		}
 	}
+	// Méthode qui permet d'afficher le ticket de caisse du client :
+	public static void displayReceipt(Scanner scanner, HashMap<String, Object> customerInfos) {	
+		// On viens récupérer la liste qui fait office de panier :
+		Object cartObject = customerInfos.get("Cart");
+		@SuppressWarnings("unchecked")
+		ArrayList<HashMap<String, Object>> cart = (ArrayList<HashMap<String, Object>>) cartObject;
+		
+		System.out.println();
+		System.out.println("****************** TICKET DE CAISSE ******************");
+		System.out.println();
+		System.out.println("Client : " + customerInfos.get("LastName") + " " + customerInfos.get("Name"));
+		System.out.println();
+		for(HashMap<String, Object> item : cart) {
+			System.out.print("- " + item.get("NameItem") + "  - " + item.get("QuantityItem"));
+			Object pricePerKgObject = item.get("PricePerKg");
+			boolean pricePerKgBool = (boolean) pricePerKgObject;
+			System.out.println( pricePerKgBool ? " Kg" + "  - " + item.get("QuantityPrice") + "€" : " unité(s)" + "  - " + item.get("QuantityPrice") + "€" );
+		}
+		System.out.println();
+		System.out.println("Prix total : " + customerInfos.get("TotalPrice") + "€");
+		System.out.println();
+		System.out.println("******************************************************");
+	}
 }
