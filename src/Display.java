@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Display {
@@ -40,5 +42,32 @@ public class Display {
 		System.out.print("Veuillez saisir votre choix (1 - " + customerMenu.length + ") : ");
 		int userChoice = Check.checkMenu(scanner, customerMenu); // On apelle la méthode checkMenu pour vérifier la saisie utilisateur 
 		return userChoice;
+	}
+	
+	// Méthode affichant la liste de produit restant, une fois mis à jour :
+	public static void displayUpdatedMerchandiseList(ArrayList<HashMap<String, Object>> merchandiseList) {
+		System.out.println("********************** PRODUIT **********************");
+		System.out.println();
+		for(HashMap<String, Object> merchandise : merchandiseList) {
+			System.out.print("ID: " + merchandise.get("Id") + " - PRODUIT: " + merchandise.get("Nom"));
+			
+			// Casting explicites -> pour convertir les objets de ma HashMap en type spécifique lors de l'estraction de données de la HashMap :
+			// Normalement besoin d'une verification pour éviter des erreurs :
+			// Mais je le fait pas car je suis certains du type de données que je stock (Localement) :
+			Object stockObject = merchandise.get("Stock");
+			// (Number) -> opération de casting explicite, nécessaire car stockObject est déclaré comme "Object" alors qu'il contient un nombre :
+			// .doubleValue() -> Méthode définie par la classe "Number", utilisée pour convertir la valeur numérique encapsulée dans l'objet
+			// Number en un type "Double" :
+			double stockDouble = ((Number) stockObject).doubleValue();
+			Object kgPriceObject = merchandise.get("PrixAuKg");
+			boolean kgPriceBool = (Boolean) kgPriceObject;
+			
+			System.out.print(" - STOCK: ");
+			// Opération ternaire, si return true -> première option, sinon deuxième :
+			System.out.print(stockDouble == 0 ? "Indisponible" : merchandise.get("Stock"));
+			System.out.print(kgPriceBool ? "Kg" : "Pièces");
+			System.out.print(" - PRIX: " + merchandise.get("Prix"));
+			System.out.println(kgPriceBool ? "€/Kg" : "€/U");ezfezfzef
+		}
 	}
 }
