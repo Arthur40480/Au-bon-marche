@@ -7,6 +7,8 @@ public class Customer {
 	public static void newCustomer(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList) {
 		// Déclaration d'une HashMap qui contiendras les informations du client, ainsi que sont panier :
 		HashMap<String, Object> customerInfos = new HashMap<>();
+		// Déclaration d'une HashMap qui sera le panier du client :
+		HashMap<String, Object> cart = new HashMap<>();
 		
 		System.out.println();
 		System.out.println("*************** Bienvenue ***************");
@@ -20,12 +22,14 @@ public class Customer {
 		// On assigne les informations du client à notre HashMap :
 		customerInfos.put("LastName", lastName);
 		customerInfos.put("Name", name);
+		customerInfos.put("TotalPrice", 0);
+		customerInfos.put("Cart", cart);
 		
 		int userChoice = Display.customerMenu(scanner);
 		// Suivant le choix utilisateur, on éxecute :
 		switch(userChoice) {
 		case 1:
-			Purchase.purchaseMerchandise(scanner, merchandiseList);
+			Purchase.purchaseMerchandise(scanner, merchandiseList, customerInfos);
 			break;
 		case 2:
 			System.out.println("Deuxième option !");
