@@ -44,8 +44,9 @@ public class Display {
 		return userChoice;
 	}
 	
-	// Méthode affichant la liste de produit restant, une fois mis à jour :
-	public static void displayUpdatedMerchandiseList(ArrayList<HashMap<String, Object>> merchandiseList) {
+	// Méthode affichant la liste de produit restant :
+	public static void displayMerchandiseList(ArrayList<HashMap<String, Object>> merchandiseList) {
+		System.out.println();
 		System.out.println("********************** PRODUIT **********************");
 		System.out.println();
 		for(HashMap<String, Object> merchandise : merchandiseList) {
@@ -67,7 +68,7 @@ public class Display {
 			System.out.print(stockDouble == 0 ? "Indisponible" : merchandise.get("Stock"));
 			System.out.print(kgPriceBool ? "Kg" : "Pièces");
 			System.out.print(" - PRIX: " + merchandise.get("Prix"));
-			System.out.println(kgPriceBool ? "€/Kg" : "€/U");ezfezfzef
+			System.out.println(kgPriceBool ? "€/Kg" : "€/U");
 		}
 	}
 }

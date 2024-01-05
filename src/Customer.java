@@ -1,14 +1,16 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Customer {
 	// Méthode permettant de créer de nouveau client en enregistrant leurs informations :
-	public static void newCustomer(Scanner scanner) {
+	public static void newCustomer(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList) {
 		// Déclaration d'une HashMap qui contiendras les informations du client, ainsi que sont panier :
 		HashMap<String, Object> customerInfos = new HashMap<>();
 		
 		System.out.println();
 		System.out.println("*************** Bienvenue ***************");
+		System.out.println();
 		System.out.print("Veuillez remplir votre nom : ");
 		String lastName = scanner.next();
 		System.out.print("Veuillez remplir votre prénom : ");
@@ -23,7 +25,7 @@ public class Customer {
 		// Suivant le choix utilisateur, on éxecute :
 		switch(userChoice) {
 		case 1:
-			System.out.println("Première option !");
+			Purchase.purchaseMerchandise(scanner, merchandiseList);
 			break;
 		case 2:
 			System.out.println("Deuxième option !");
