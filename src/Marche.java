@@ -16,7 +16,7 @@ public class Marche {
 				{"Clémentine", "Datte", "Grenade", "Kaki", "Kiwi", "Mandarine", "Orange", "Pamplemousse", "Poire","Pomme", 		//  <- Noms
 				"Carrote", "Choux de Bruxelles", "Chou vert", "Courge butternut", "Endive", "Epinard", "Poireau", "Potiron", "Radis noir", "Salsifis"},	
 				{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},	// <- Id
-				{6, 4, 3, 3, 5, 6, 8, 8, 5, 8, 7, 4, 12, 6, 5, 4, 5, 6, 10, 0},		//  <- Stock
+				{6, 4, 3, 3, 5, 6, 8, 8, 5, 8, 7, 4, 12, 6, 5, 4, 5, 6, 10, 3},		//  <- Stock
 				{2.90, 7, 3.50, 4.50, 3.50, 2.80, 1.50, 2, 2.50, 1.50, 1.30, 4, 2.50, 2.50, 2.50, 2.60, 1.20, 2.50, 5, 2.50},	//  <- Prix
 				{true, true, true, true, true, true, true, false, true, true, true, true, false, false, true, true, true, false, false, true},	//  <- Prix au kg ?
 		};
