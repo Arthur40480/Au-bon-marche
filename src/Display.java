@@ -58,7 +58,9 @@ public class Display {
 			System.out.print(" - STOCK: ");
 			// Opération ternaire, si return true -> première option, sinon deuxième :
 			System.out.print(stockDouble == 0 ? "Indisponible" : merchandise.get("Stock"));
-			System.out.print(kgPriceBool ? "Kg" : "Pièces");
+			if(stockDouble != 0) {
+				System.out.print(kgPriceBool ? "Kg" : "Pièces");
+			}
 			System.out.print(" - PRIX: " + merchandise.get("Prix"));
 			System.out.println(kgPriceBool ? "€/Kg" : "€/U");
 		}
