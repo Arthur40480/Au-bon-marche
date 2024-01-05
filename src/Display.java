@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Display {
 	
 	// Méthode affichant le menu principale et retourne la saisie de l'utilisateur :
-	public static int mainMenu(Scanner scanner) {
+	public static void mainMenu(Scanner scanner, ArrayList<HashMap<String, Object>> merchandiseList) {
 		// On déclare un tableau de String qui contiendra chaque option :
 		String[] mainMenu = {
 				"1 - Traiter l'arrivée d'un nouveau client",
@@ -20,8 +20,21 @@ public class Display {
 		System.out.println();
 		System.out.println("*****************************************");
 		System.out.print("Veuillez saisir votre choix (1 - " + mainMenu.length + ") : ");
-		int userChoice = Check.checkMenu(scanner, mainMenu); // On apelle la méthode checkMenu pour vérifier la saisie utilisateur 
-		return userChoice;
+		// On apelle la méthode checkMenu pour vérifier la saisie utilisateur :
+		int userChoice = Check.checkMenu(scanner, mainMenu);  
+		// Suivant le choix utilisateur, on éxecute :
+		switch(userChoice) {
+			case 1:
+				Customer.newCustomer(scanner, merchandiseList);
+				break;
+			case 2:
+				displayMerchandiseList(merchandiseList);
+				break;
+			case 3:
+				System.out.println();
+				System.out.println("*************** A bientôt ***************");
+				System.exit(0);
+		}
 	}
 	// Méthode affichant la liste de produit restant :
 	public static void displayMerchandiseList(ArrayList<HashMap<String, Object>> merchandiseList) {
@@ -51,7 +64,7 @@ public class Display {
 		}
 	}
 	// Méthode qui permet d'afficher le ticket de caisse du client :
-	public static void displayReceipt(Scanner scanner, HashMap<String, Object> customerInfos) {	
+	public static void displayReceipt(Scanner scanner, HashMap<String, Object> customerInfos, ArrayList<HashMap<String, Object>> merchandiseList) {	
 		// On viens récupérer la liste qui fait office de panier :
 		Object cartObject = customerInfos.get("Cart");
 		@SuppressWarnings("unchecked")
@@ -71,6 +84,6 @@ public class Display {
 		System.out.println();
 		System.out.println("Prix total : " + customerInfos.get("TotalPrice") + "€");
 		System.out.println();
-		Display.mainMenu(scanner);
+		Display.mainMenu(scanner, merchandiseList);
 	}
 }

@@ -31,7 +31,7 @@ public class Purchase {
 			System.out.print("Avez-vous terminé vos achats ? (Oui/Non) : ");
 			String userChoice = scanner.next();
 			if(userChoice.toLowerCase().equals("oui")) {
-				Display.displayReceipt(scanner, customerInfos);
+				Display.displayReceipt(scanner, customerInfos, merchandiseList);
 				break;
 			}
 		}
