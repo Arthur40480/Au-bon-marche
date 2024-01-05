@@ -19,7 +19,7 @@ public class Update {
 		return merchandiseList;
 	}
 	// Méthode qui permet de mettre à jour le panier du client :
-	public static void updateCart(ArrayList<HashMap<String, Object>> merchandiseList, HashMap<String, Object> customerInfos, int merchandiseId, double merchandiseQuantity) {
+	public static HashMap<String, Object> updateCart(ArrayList<HashMap<String, Object>> merchandiseList, HashMap<String, Object> customerInfos, int merchandiseId, double merchandiseQuantity) {
 		// On viens récupérer la HashMap de la marchandise à ajouter dans le panier :
 		HashMap<String, Object> merchandiseToAdd = merchandiseList.get(merchandiseId - 1);
 		// On viens récupérer la HashMap qui fait office de panier :
@@ -56,7 +56,7 @@ public class Update {
 		cart.put("QuantityItem", merchandiseQuantity);
 		cart.put("PricePerKg", pricePerKgBool);
 		customerInfos.put("Cart", cart);
-		System.out.println("Infos client : " + customerInfos);
-		System.out.println("Panier client : " + cart);
+		
+		return customerInfos;
 	}
 }
