@@ -25,3 +25,15 @@ __Bilan quotidien :__
   * Récapitule les achats de chaque client.
   * Calcule le coût total des ventes de la journée.
 
+### Comment Utiliser
+1. Installer Git
+2. Cloner le depo
+3. Importer le projet dans votre IDE
+4. Exécutez le programme
+   
+     * Saisissez le nombre de chevaux (entre 12 et 20)
+     * Choisissez le type de course (tiercé, quarté, quinté)
+     * Observez la simulation de la course et découvrez les résultats
+
+### N'oubliez pas, cinq fruits et légumes par jour ! :green_apple: :eggplant: :watermelon: :lemon:
+
