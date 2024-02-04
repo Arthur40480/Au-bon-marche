@@ -31,9 +31,5 @@ __Bilan quotidien :__
 3. Importer le projet dans votre IDE
 4. Exécutez le programme
    
-     * Saisissez le nombre de chevaux (entre 12 et 20)
-     * Choisissez le type de course (tiercé, quarté, quinté)
-     * Observez la simulation de la course et découvrez les résultats
-
 ### N'oubliez pas, cinq fruits et légumes par jour ! :green_apple: :eggplant: :watermelon: :lemon:
 
